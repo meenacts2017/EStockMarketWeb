@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>List of Companies</h2>
+
+    <a routerLink="/update-company/0" class="btn btn-primary pull-right"><i class="fa fa-add"></i> Add Company</a>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>CEO</th>
+                <th>TurnOver</th>               
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of ObjCompanyList;">
+                <td>{{item.Id}}</td>
+                <td>{{item.Code}}</td>
+                <td>{{item.Name}}</td>
+                <td>{{item.CEO}}</td>
+                <td>{{item.TurnOver}}</td>
+                <td>
+                   <a routerLink="/company/{{item.Id}}" class="btn btn-primary"><i class="fa fa-info"></i> Details</a>                  
+                   <a  class="btn btn-primary" (click)="onDelete(item.Id,item.Name)" style = "background-color: #dc3545;" >Delete</a>
+                </td>               
+            </tr>
+        </tbody>
+    </table>
+</div>

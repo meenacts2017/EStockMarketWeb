@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <label class=" mr-sm-2">Company Code:</label>
+        </div>
+        <div class="col-md-auto">
+            <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="ObjCompanyStockAvg.Code" readonly>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label class=" mr-sm-2">Company Name:</label>
+        </div>
+        <div class="col-md-auto">
+            <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="ObjCompanyStockAvg.Name" readonly>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label class=" mr-sm-2">From:</label>
+        </div>
+        <div class="col-md-auto">
+            <div class="row">
+                <div class="col-md-auto">
+                    <input type="date" class="form-control mb-2 mr-sm-2" [(ngModel)]="startDate"
+                        (change)="OnDateChange($event)">
+                </div>
+                <div class="col-md-auto">
+                    <input type="date" class="form-control mb-2 mr-sm-2" [(ngModel)]="endDate"
+                        (change)="OnDateChange($event)">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <h3>List of Stock</h3>
+    <a routerLink="/add-company-stock/{{companyId}}" class="btn btn-primary pull-right"><i
+            class="fa fa-add"></i> Add Stock</a>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Stock Price</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of ObjCompanyStock;">
+                <td>{{item.StockPrice}}</td>
+                <td>{{item.StartDate | date:'dd-MMM-yyyy'}}</td>
+                <td>{{item.StartDate | date:'hh:mm:ss'}}</td>
+            </tr>
+            <tr *ngIf="ObjCompanyStock.length == 0">
+                <td colspan="3" class="text-center">No data found!</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-auto">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Minimum Price</td>
+                    <td></td>
+                    <td>{{ObjCompanyStockAvg.Min}}</td>
+                </tr>
+                <tr>
+                    <td>Maxmium Price</td>
+                    <td></td>
+                    <td>{{ObjCompanyStockAvg.Max}}</td>
+                </tr>
+                <tr>
+                    <td>Average Price</td>
+                    <td></td>
+                    <td>{{ObjCompanyStockAvg.Avg}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

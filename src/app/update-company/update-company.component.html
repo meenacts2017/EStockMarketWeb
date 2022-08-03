@@ -1,0 +1,90 @@
+<div class="container">
+    <form [formGroup]="ObjForm" (ngSubmit)="onSubmit($event)">
+        <div class="row">
+            <div class="col-md-2">
+                <label for="email" class=" mr-sm-2">Company Code:</label>
+            </div>
+            <div class="col-md-auto">                
+                <input type="email" class="form-control mb-2 mr-sm-2" formControlName="companyCode" required>
+                <div *ngIf="submitted && form['companyCode'].errors" class="error">
+                    <div *ngIf="form['companyCode'].errors['required']">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label for="email" class=" mr-sm-2">Company Name:</label>
+            </div>
+            <div class="col-md-auto">                
+                <input type="email" class="form-control mb-2 mr-sm-2" formControlName="companyName">
+                <div *ngIf="submitted && form['companyName'].errors" class="error">
+                    <div *ngIf="form['companyName'].errors['required']">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label for="email" class=" mr-sm-2">Company CEO:</label>
+            </div>
+            <div class="col-md-auto">                
+                <input type="email" class="form-control mb-2 mr-sm-2" formControlName="companyCeo">
+                <div *ngIf="submitted && form['companyCeo'].errors" class="error">
+                    <div *ngIf="form['companyCeo'].errors['required']">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label for="email" class=" mr-sm-2">Company Turnover:</label>
+            </div>
+            <div class="col-md-auto">                
+                <input type="email" class="form-control mb-2 mr-sm-2" formControlName="turnover">
+                <div *ngIf="submitted && form['turnover'].errors" class="error">
+                    <div *ngIf="form['turnover'].errors['required']">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label for="email" class=" mr-sm-2">Company Website:</label>
+            </div>
+            <div class="col-md-auto">                
+                <input type="email" class="form-control mb-2 mr-sm-2" formControlName="website">
+                <div *ngIf="submitted && form['website'].errors" class="error">
+                    <div *ngIf="form['website'].errors['required']">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label for="email" class=" mr-sm-2">Company StockExchange:</label>
+            </div>
+            <div class="col-md-auto">                
+                <input type="email" class="form-control mb-2 mr-sm-2" formControlName="stockExchange">
+                <div *ngIf="submitted && form['stockExchange'].errors" class="error">
+                    <div *ngIf="form['stockExchange'].errors['required']">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-auto pull-right">
+                <button type="button" (click)="onCancel($event)" class="btn btn-danger mb-2">Cancel</button>
+                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </div>           
+        </div>
+       
+    </form>
+</div>
